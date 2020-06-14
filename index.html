@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIP CALCULATOR</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        main{
+            background-image: url(p.jpg);
+            max-width: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-weight: 18px;
+            height: 100vh;
+            display: flex;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        div{
+            max-width: 400px;
+            height: auto;
+            background-color: #00cec9;
+            padding: 50px;
+            box-shadow: 1px 1px 15px 3px #2d3436;
+        }
+        h1{
+            margin-bottom: 10px;
+            text-shadow: 1px 2px 1px white;
+        }
+        label{
+            display:block;
+            text-transform: capitalize;
+            margin-top: 30px;
+            }
+     input{
+         width: 300px;
+         padding: 10px 0;
+     }
+     button{
+         border-radius: 10px;
+         padding: 15px 30px;
+         font-size: .8rem;
+         text-transform: uppercase;
+         border: none;
+         color: white;
+         background: #00b894;
+         box-shadow: 1px 1px 5px 1px #2d3436;
+         margin-top: 20px;
+     }
+     button:hover{
+         
+         background-color: black;
+     }
+    </style>
+</head>
+<body>
+    <main>
+        
+        <div>
+            <h1>TIP CALCULATOR</h1>
+            <label>Bill Amount</label>
+            <input type="text" name="" id="bill_amount"><br>
+            <label>Tip Percent</label>
+            <input type="text" name="" id="tip_perc"><br>
+            <label>Tip Amount</label>
+            <input type="text" name="" id="tip_total" disabled><br>
+            <label>Total Billed</label>
+            <input type="text" name="" id="total_billed" disabled><br>
+            <button onclick="tipcalc()">Calculate</button>
+        </div>
+    </main>
+<!--------------JAVASCRIPT------------>
+    <script>
+        const tipcalc = () => {
+            let amount = document.getElementById('bill_amount').value;
+            let perc = document.getElementById('tip_perc').value;
+
+            let tip = amount * (perc/100);
+            let total = tip + Number(amount);
+
+            document.getElementById('tip_total').value = tip;
+            document.getElementById('total_billed').value = total;
+        }
+    </script>
+</body>
+</html>
